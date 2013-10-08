@@ -1,4 +1,4 @@
-module Bob where
+module Bob(responseFor) where
 
 import Data.Char
 
@@ -10,13 +10,10 @@ responseFor s
   | otherwise = "Whatever."
 
 isSilentTreatment :: String -> Bool
-isSilentTreatment [] = True
-isSilentTreatment s
-  | all isSpace s = True
-  | otherwise = False
+isSilentTreatment s =  all isSpace s
 
 isQuestion :: String -> Bool
 isQuestion s = last s == '?'
 
 isShout :: String -> Bool
-isShout s = any isAlpha s && map toUpper s == s
+isShout s = any isAlpha s && not (any isLower s)
