@@ -1,13 +1,12 @@
 var WordCount = function(input) {
   var words = input.split(/\s/);
-  var counts = {};
 
-  var tally = function(word) {
-    this[word] = (this[word] || 0) + 1;
+  var tally = function(counts, word) {
+    counts[word] = (counts[word] || 0) + 1;
+    return counts;
   };
 
-  words.forEach(tally, counts);
-  return counts;
+  return words.reduce(tally, {});
 };
 
 module.exports = WordCount;
