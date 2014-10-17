@@ -1,6 +1,6 @@
 var Bob = function() {
   var isSilentTreatment = function(input) {
-    return input.length === 0 || /^\s*$/.test(input);
+    return /^\s*$/.test(input);
   };
 
   var isShouting = function(input) {
@@ -24,7 +24,7 @@ var Bob = function() {
       return 'Sure.';
     }
 
-    return "Whatever.";
+    return 'Whatever.';
   };
 };
 
