@@ -15,21 +15,13 @@ var Song = function() {
   }
 
   function verses(start, end) {
-    range(start, end).reduce(sing, "");
-  }
-
-  function range(start, end) {
-    var arr = [];
+    var song = "";
 
     for (var i = start; i <= end; i++) {
-      arr.push(i);
+      song += verse(i);
     }
 
-    return arr;
-  }
-
-  function sing(sung, verseNumber) {
-    return sung += verse(verseNumber);
+    return song;
   }
 
   return {
