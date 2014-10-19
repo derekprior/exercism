@@ -20,10 +20,7 @@ function DNA(strand) {
     };
   };
 
-  return {
-    count: count.bind(this),
-    histogram: histogram.bind(this)
-  };
+  return this;
 }
 
 module.exports = DNA;
