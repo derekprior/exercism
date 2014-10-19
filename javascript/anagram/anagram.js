@@ -1,9 +1,9 @@
 var Anagram = function(word) {
-  var alphabetizedWord = alphabetize(word);
-  var lowerCaseWord = word.toLowerCase();
+  this.word = word.toLowerCase();
+  var alphabetizedWord = alphabetize(this.word);
 
   var matches = function(candidates) {
-    if (candidates.constructor !== Array) {
+    if (!Array.isArray(candidates)) {
       candidates = [].slice.call(arguments, 0);
     }
 
@@ -13,12 +13,12 @@ var Anagram = function(word) {
   };
 
   function isAnagram(candidate) {
-    return alphabetizedWord === alphabetize(candidate) &&
-      lowerCaseWord !== candidate.toLowerCase();
+    return this.word !== candidate &&
+      alphabetizedWord === alphabetize(candidate);
   }
 
   function alphabetize(unsortedWord) {
-    return unsortedWord.toLowerCase().split('').sort().join('');
+    return unsortedWord.split('').sort().join('');
   }
 
   return { matches: matches };
